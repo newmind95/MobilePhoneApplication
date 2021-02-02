@@ -25,7 +25,7 @@ public class Main {
                     printInstructions();
                     break;
                 case 1:
-                    contacts.printContacts();
+                    phoneContacts.printContacts();
                     break;
                 case 2:
                     addContact();
@@ -45,6 +45,8 @@ public class Main {
             }
         }
     }
+    
+    /** Method to print the instructions. */
      protected static void printInstructions() {
         System.out.println("\t 0 to print the choice options: ");
         System.out.println("\t 1 to print the Contact list: ");
@@ -55,6 +57,7 @@ public class Main {
         System.out.println("\t 6 to quit from the application: ");
     }
     
+    /** Method to add contact in the list. */
     protected static void addContact() {
         System.out.println("Dialog for creating a contact: ");
         System.out.print("Enter Name: ");
@@ -69,6 +72,7 @@ public class Main {
         }
     }
     
+    /** Method to update existing contact. */
     protected static void modifyContact() { 
         System.out.println("Please enter contact you want to modify: ");
         System.out.print("Enter contact Name: ");
@@ -90,6 +94,7 @@ public class Main {
         }
     }
     
+    /** Method to remove existing contact from the list. */
     protected static void removeExistingContact() {
         System.out.println("Please enter contact you want to delete: ");
         System.out.print("Enter contact name: ");
@@ -104,15 +109,16 @@ public class Main {
         }
     }
 
+    /** Method to search for existing contact in the list. */
     protected static void searchForExistingContact() {
        System.out.println("Please enter contact you want to find: ");
-       System.out.println("Enter name: ");
+       System.out.print("Enter name: ");
        String name = input.nextLine();
        Contacts searchContact = phoneContacts.queryContact(name);
        if (searchContact != null) {
-           System.out.println("Find contact " + name + " in your contact list.");
+           System.out.println("Find " + searchContact.getName() + " in your contact list.");
        } else {
-           System.out.println("Could not find " + name + " in your contact list!");
-       }
+           System.out.println("Could not find contact in your list!");
+       }   
     }
 }

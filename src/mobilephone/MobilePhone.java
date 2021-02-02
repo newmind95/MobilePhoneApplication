@@ -45,7 +45,7 @@ public class MobilePhone {
                 return i;
             }
         }
-        return 0;
+        return -1;
     }
     
     public boolean isContactUpdated(Contacts oldContact, Contacts newContact) {
@@ -79,8 +79,16 @@ public class MobilePhone {
     public Contacts queryContact(String name) {
         int position = searchForContact(name);
         if (position >= 0) {
-            return contactList.get(position);
+            return this.contactList.get(position);
         }
         return null;
+    }
+    
+    public void printContacts() {
+        System.out.println("You have " + contactList.size() + " in your contact list.");
+        for (int i = 0; i < contactList.size(); i++) {
+            System.out.println((i + 1) + ". Name: " + this.contactList.get(i).getName() +
+                    ", Phone Number: " + this.contactList.get(i).getPhoneNumber());
+        }
     }
 }
